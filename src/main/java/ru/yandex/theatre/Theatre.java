@@ -57,6 +57,7 @@ public class Theatre {
         Ballet ballet = new Ballet("Лебединое озеро", 155, balletDirector, balletActors, musicAuthor, "Либретто текст балета", choreographer);
         ballet.addActor(secondActor);
         ballet.addActor(thirdActor);
+        ballet.addActor(thirdTestActor);
         System.out.println("Список актеров для балета:");
         ballet.printActorList();
         System.out.println();
@@ -74,7 +75,8 @@ public class Theatre {
         System.out.println();
 
         System.out.println("Проверка актеров с одинаковыми фамилиями:");
-        ballet.actorReplacement(thirdTestActor, firstActor.getSurname());
+        ballet.actorReplacement(secondActor, thirdActor.getSurname());
+        ballet.printActorList();
         System.out.println();
         System.out.println();
 

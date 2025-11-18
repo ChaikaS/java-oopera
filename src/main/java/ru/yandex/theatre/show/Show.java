@@ -32,24 +32,26 @@ public class Show {
 
     public void actorReplacement(Actor newActor, String surnameReplaceableActor) {
         boolean isFoundActor = false;
+        int foundIndex = -1;
 
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
-            if (actor.getSurname().equals(newActor.getSurname())) {
-                System.out.println("Найдено несколько актеров с фамилией " + newActor.getSurname() + ". Замена не выполнена");
-                return;
-            } else if
-            (surnameReplaceableActor.equals(actor.getSurname())) {
-                listOfActors.remove(i);
-                listOfActors.add(newActor);
-                System.out.println("Актер заменен.");
+            if (surnameReplaceableActor.equals(actor.getSurname())) {
+                if (isFoundActor) {
+                    System.out.println("Найдено несколько актеров с фамилией " + surnameReplaceableActor + ". Замена не выполнена");
+                    return;
+                }
+                foundIndex = i;
                 isFoundActor = true;
-                break;
             }
         }
 
         if (!isFoundActor) {
             System.out.println("Актер с такой фамилией отсутствует, его нельзя заменить.");
+        } else {
+            listOfActors.remove(foundIndex);
+            listOfActors.add(newActor);
+            System.out.println("Актер заменен.");
         }
     }
 
