@@ -1,8 +1,8 @@
-package TheatreClass.ShowClass;
+package main.java.ru.yandex.theatre.show;
 
-import TheatreClass.PersonClass.Actor;
-import TheatreClass.PersonClass.Director;
-import TheatreClass.PersonClass.Person;
+import main.java.ru.yandex.theatre.person.Actor;
+import main.java.ru.yandex.theatre.person.Director;
+import main.java.ru.yandex.theatre.person.Person;
 
 import java.util.ArrayList;
 

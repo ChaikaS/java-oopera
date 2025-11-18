@@ -1,10 +1,12 @@
-import TheatreClass.PersonClass.Actor;
-import TheatreClass.PersonClass.Director;
-import TheatreClass.PersonClass.Person;
-import TheatreClass.ShowClass.Ballet;
-import TheatreClass.ShowClass.MusicalShow;
-import TheatreClass.ShowClass.Opera;
-import TheatreEnum.Gender;
+package main.java.ru.yandex.theatre;
+
+import main.java.ru.yandex.theatre.enums.Gender;
+import main.java.ru.yandex.theatre.person.Actor;
+import main.java.ru.yandex.theatre.person.Director;
+import main.java.ru.yandex.theatre.person.Person;
+import main.java.ru.yandex.theatre.show.Ballet;
+import main.java.ru.yandex.theatre.show.MusicalShow;
+import main.java.ru.yandex.theatre.show.Opera;
 
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ public class Theatre {
         Actor firstActor = new Actor("Светлана", "Захарова", Gender.FEMALE, 170);
         Actor secondActor = new Actor("Ильдар", "Абдразаков", Gender.MALE, 185);
         Actor thirdActor = new Actor("Анна", "Нетребко", Gender.FEMALE, 165);
+        Actor thirdTestActor = new Actor("Елена", "Нетребко", Gender.FEMALE, 175);
 
         Person musicAuthor = new Person("Пётр", "Чайковский", Gender.MALE);
         Person choreographer = new Person("Лев", "Иванов", Gender.MALE);
@@ -65,13 +68,18 @@ public class Theatre {
         System.out.println();
 
         System.out.println("Замена существующего актера:");
-        ballet.actorReplacement(firstActor, thirdActor.surname);
+        ballet.actorReplacement(firstActor, secondActor.getSurname());
         ballet.printActorList();
         System.out.println();
         System.out.println();
 
+        System.out.println("Проверка актеров с одинаковыми фамилиями:");
+        ballet.actorReplacement(thirdTestActor, firstActor.getSurname());
+        System.out.println();
+        System.out.println();
+
         System.out.println("Замена несуществующего актера:");
-        opera.actorReplacement(thirdActor, thirdActor.surname);
+        opera.actorReplacement(thirdActor, thirdActor.getSurname());
         System.out.println();
         System.out.println();
     }

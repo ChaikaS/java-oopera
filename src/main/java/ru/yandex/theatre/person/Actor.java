@@ -1,15 +1,19 @@
-package TheatreClass.PersonClass;
+package main.java.ru.yandex.theatre.person;
 
-import TheatreEnum.Gender;
+import main.java.ru.yandex.theatre.enums.Gender;
 
 import java.util.Objects;
 
 public class Actor extends Person {
-    public final int height;
+    private final int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
         this.height = height;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     @Override
@@ -17,7 +21,7 @@ public class Actor extends Person {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Actor actor = (Actor) o;
-        return Objects.equals(height, actor.height);
+        return Objects.equals(height, actor.height) && Objects.equals(getName(), actor.getName()) && Objects.equals(getSurname(), actor.getSurname());
     }
 
     @Override

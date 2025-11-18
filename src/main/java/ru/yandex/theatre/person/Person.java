@@ -1,18 +1,30 @@
-package TheatreClass.PersonClass;
+package main.java.ru.yandex.theatre.person;
 
-import TheatreEnum.Gender;
+import main.java.ru.yandex.theatre.enums.Gender;
 
 import java.util.Objects;
 
 public class Person {
-    public final String name;
-    public final String surname;
-    public final Gender gender;
+    private final String name;
+    private final String surname;
+    private final Gender gender;
 
     public Person(String name, String surname, Gender gender) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Gender getGender() {
+        return gender;
     }
 
     @Override
@@ -29,7 +41,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Человек{" +
+        return "Личные данные{" +
                 "Имя='" + name + '\'' +
                 ", Фамилия='" + surname + '\'' +
                 ", Пол=" + gender +

@@ -1,7 +1,7 @@
-package TheatreClass.ShowClass;
+package main.java.ru.yandex.theatre.show;
 
-import TheatreClass.PersonClass.Actor;
-import TheatreClass.PersonClass.Director;
+import main.java.ru.yandex.theatre.person.Actor;
+import main.java.ru.yandex.theatre.person.Director;
 
 import java.util.ArrayList;
 
@@ -31,28 +31,31 @@ public class Show {
     }
 
     public void actorReplacement(Actor newActor, String surnameReplaceableActor) {
+        boolean isFoundActor = false;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
-            if (surnameReplaceableActor.equals(actor.surname)) {
+            if (actor.getSurname().equals(newActor.getSurname())) {
+                System.out.println("Найдено несколько актеров с фамилией " + newActor.getSurname() + ". Замена не выполнена");
+                return;
+            } else if
+            (surnameReplaceableActor.equals(actor.getSurname())) {
                 listOfActors.remove(i);
                 listOfActors.add(newActor);
                 System.out.println("Актер заменен.");
-                return;
+                isFoundActor = true;
+                break;
             }
         }
 
-        for (Actor actor : listOfActors) {
-            if (!actor.surname.equals(surnameReplaceableActor)) {
-                System.out.println("Актер с такой фамилией отсутствует, его нельзя заменить.");
-                return;
-            }
+        if (!isFoundActor) {
+            System.out.println("Актер с такой фамилией отсутствует, его нельзя заменить.");
         }
     }
 
     public void printActorList() {
         for (Actor actor : listOfActors) {
-            System.out.println("Фамилия: " + actor.surname + ".");
-            System.out.println("Имя: " + actor.name + ". (рост: " + actor.height + ")");
+            System.out.println(actor.toString());
         }
     }
 

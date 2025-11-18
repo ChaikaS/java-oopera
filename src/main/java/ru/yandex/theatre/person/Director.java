@@ -1,6 +1,6 @@
-package TheatreClass.PersonClass;
+package main.java.ru.yandex.theatre.person;
 
-import TheatreEnum.Gender;
+import main.java.ru.yandex.theatre.enums.Gender;
 
 public class Director extends Person {
     private final int numberOfShows;
@@ -12,8 +12,8 @@ public class Director extends Person {
 
     public void printDirectorInfo() {
         System.out.println("Информация о режисере.");
-        System.out.println("Фамилия: " + super.surname + ".");
-        System.out.println("Имя: " + super.name + ".");
+        System.out.println("Фамилия: " + super.getSurname() + ".");
+        System.out.println("Имя: " + super.getName() + ".");
     }
 
     @Override
